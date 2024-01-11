@@ -2,7 +2,7 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { downloadFile } from "../services/json-downloader";
 import { WeightMap } from "../services/weight-processor";
 import { skullWeight, healthPotionWeight, shieldWeight, swordWeight, fireWeight, lightningWeight } from "./weight-adjuster";
-import { widthAtom, heightAtom, gridAtom, levelNumberAtom } from "../recoil/grid";
+import { widthAtom, heightAtom, gridAtom, levelNumberAtom, moveCountAtom } from "../recoil/game";
 import { AlertContext } from "../context/alert-provider";
 import { useContext } from "react";
 
@@ -18,6 +18,7 @@ export const ExportButton = () => {
     const _lightningWeight = useRecoilValue(lightningWeight);
     const grid = useRecoilValue(gridAtom);
     const levelNumber = useRecoilValue(levelNumberAtom);
+    const moveCount = useRecoilValue(moveCountAtom);
 
     const exportLevel = () => {
         let cells = [];
@@ -44,7 +45,8 @@ export const ExportButton = () => {
         if (!validateWeights()) return;
         const level = {
             "cells": cells,
-            "spawnWeights": weights, 
+            "spawnWeights": weights,
+            "moveCount": moveCount,
         }
         downloadFile(level, levelNumber);
     }

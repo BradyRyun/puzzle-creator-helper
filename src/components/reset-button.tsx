@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AlertContext } from "../context/alert-provider";
 import { useRecoilState } from "recoil";
-import { gridAtom } from "../recoil/grid";
+import { gridAtom } from "../recoil/game";
 
 export const ResetButton = () => {
     const { setAlert } = useContext(AlertContext);

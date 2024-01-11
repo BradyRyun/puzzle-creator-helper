@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { IconMap } from "./icon-map";
-import { gridAtom } from "../recoil/grid";
+import { gridAtom } from "../recoil/game";
 import { useRecoilState } from "recoil";
 
 type PuzzleBlockProps = {

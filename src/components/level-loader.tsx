@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { fireWeight, healthPotionWeight, lightningWeight, shieldWeight, skullWeight, swordWeight } from "./weight-adjuster";
-import { gridAtom } from "../recoil/grid";
+import { gridAtom } from "../recoil/game";
 
 export const LevelLoader = () => {
     const [showInput, setShowInput] = useState(true);
